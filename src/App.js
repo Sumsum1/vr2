@@ -11,7 +11,7 @@ function App() {
     <DefaultXRControllers />
     <ambientLight />
     <spotLight />
-    <Environment background files={'studio_country_hall_2k2.hdr'}  ToneMapping={ReinhardToneMapping}/>
+    <Environment background files={'studio_country_hall_2k2.hdr'}/>
     <OrbitControls />
 
     <RayGrab>
