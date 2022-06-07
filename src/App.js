@@ -1,24 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import { Canvas } from '@react-three/fiber';
+import { VRCanvas, DefaultXRControllers } from '@react-three/xr'
+import { Box, Environment, OrbitControls } from '@react-three/drei'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  <VRCanvas style={{height: '100vh'}}>
+    <DefaultXRControllers />
+    <ambientLight />
+    <spotLight />
+
+    <OrbitControls />
+
+    <Box position={[0, 0.8, -1]} scale={[0.3, 0.3, 0.3]}>
+      <meshStandardMaterial color="#e23" />
+    </Box>
+  </VRCanvas>
   );
 }
 
