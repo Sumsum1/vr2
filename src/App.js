@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Canvas } from '@react-three/fiber';
-import { VRCanvas, DefaultXRControllers } from '@react-three/xr'
+import { VRCanvas, DefaultXRControllers, RayGrab } from '@react-three/xr'
 import { Box, Environment, OrbitControls } from '@react-three/drei'
 
 function App() {
@@ -11,12 +11,14 @@ function App() {
     <DefaultXRControllers />
     <ambientLight />
     <spotLight />
-
+    <Environment background files={'studio_country_hall_2k2.hdr'}  ToneMapping={ReinhardToneMapping}/>
     <OrbitControls />
 
-    <Box position={[0, 0.8, -1]} scale={[0.3, 0.3, 0.3]}>
-      <meshStandardMaterial color="#e23" />
-    </Box>
+    <RayGrab>
+      <Box position={[0, 0.8, -1]} scale={[0.3, 0.3, 0.3]}>
+        <meshStandardMaterial color="#e23" />
+      </Box>
+    </RayGrab>
   </VRCanvas>
   );
 }
